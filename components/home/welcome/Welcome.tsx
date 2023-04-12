@@ -10,7 +10,7 @@ import {
 
 import styles from "./welcome.style";
 import { useRouter } from "expo-router";
-import { icons } from "../../../constants";
+import { SIZES, icons } from "../../../constants";
 
 const jobTypes = ["Full-time", "Part-time", "Contractor"];
 
@@ -53,9 +53,14 @@ const Welcome = () => {
 								router.push(`/search/${item}`);
 							}}
 						>
-							<Text>{item}</Text>
+							<Text style={styles.tabText(activeJobType, item)}>
+								{item}
+							</Text>
 						</TouchableOpacity>
 					)}
+					keyExtractor={(item) => item}
+					contentContainerStyle={{ columnGap: SIZES.small }}
+					horizontal
 				/>
 			</View>
 		</View>
