@@ -2,6 +2,7 @@ import { Stack } from "expo-router";
 import { useCallback } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+import { View } from "react-native";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -19,7 +20,7 @@ const Layout = () => {
 	}, [fontsLoaded]);
 
 	if (!fontsLoaded) return null;
-	return <Stack onLayout={onLayoutRootView} />;
+	return <Stack />;
 };
 
 export default Layout;
