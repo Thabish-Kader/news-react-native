@@ -1,7 +1,7 @@
 import { View, Text, SafeAreaView, ScrollView } from "react-native";
 import { useState } from "react";
 import { Stack, useRouter } from "expo-router";
-import { COLORS, SIZES, icons } from "../constants";
+import { COLORS, SIZES, icons, images } from "../constants";
 import {
 	Nearbyjobs,
 	Popularjobs,
@@ -14,7 +14,7 @@ const Home = () => {
 
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
-			{/* <Stack.Screen
+			<Stack.Screen
 				options={{
 					headerStyle: { backgroundColor: COLORS.lightWhite },
 					headerShadowVisible: false,
@@ -23,10 +23,11 @@ const Home = () => {
 					),
 					headerRight: () => (
 						<ScreenHeaderBtn
-							iconUrl={icons.profile}
+							iconUrl={images.profile}
 							dimension="100%"
 						/>
 					),
+					headerTitle: "",
 				}}
 			/>
 			<ScrollView showsVerticalScrollIndicator={false}>
@@ -35,7 +36,7 @@ const Home = () => {
 					<Popularjobs />
 					<Nearbyjobs />
 				</View>
-			</ScrollView> */}
+			</ScrollView>
 		</SafeAreaView>
 	);
 };

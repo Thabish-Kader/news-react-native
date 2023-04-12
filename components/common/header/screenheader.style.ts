@@ -4,7 +4,7 @@ import { COLORS, SIZES } from "../../../constants";
 
 interface Styles {
 	btnContainer: ViewStyle;
-	btnImg: (dimension: number) => ImageStyle;
+	btnImg: (dimension: string) => ImageStyle;
 }
 
 const styles = StyleSheet.create<Styles | any>({
@@ -16,7 +16,7 @@ const styles = StyleSheet.create<Styles | any>({
 		justifyContent: "center",
 		alignItems: "center",
 	},
-	btnImg: (dimension: number) => ({
+	btnImg: (dimension: string) => ({
 		width: dimension,
 		height: dimension,
 		borderRadius: SIZES.small / 1.25,
