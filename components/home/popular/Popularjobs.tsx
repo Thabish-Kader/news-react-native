@@ -4,7 +4,7 @@ import { View, Text, ActivityIndicator, FlatList } from "react-native";
 import styles from "./popularjobs.style";
 import { useRouter } from "expo-router";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { COLORS } from "../../../constants";
+import { COLORS, SIZES } from "../../../constants";
 import PopularJobCard from "../../common/cards/popular/PopularJobCard";
 
 const Popularjobs = () => {
@@ -31,6 +31,9 @@ const Popularjobs = () => {
 						renderItem={({ item }) => (
 							<PopularJobCard item={item} />
 						)}
+						keyExtractor={(item) => item?.job_id}
+						contentContainerStyle={{ columnGap: SIZES.medium }}
+						horizontal
 					/>
 				)}
 			</View>
