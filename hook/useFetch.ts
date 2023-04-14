@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { RAPID_API_KEY } from "@env";
+import { JobData } from "../typeings";
 
 const useFetch = (endpoint: string, query: Object) => {
-	const [data, setData] = useState([]);
+	const [data, setData] = useState<JobData[]>();
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState(null);
 
@@ -22,7 +23,6 @@ const useFetch = (endpoint: string, query: Object) => {
 		try {
 			const response = await axios.request(options);
 			setData(response.data.data);
-			console.log(response);
 		} catch (error) {
 			setError(error);
 			alert("There is an error");
