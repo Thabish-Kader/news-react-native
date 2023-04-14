@@ -6,6 +6,7 @@ import styles from "./screenheader.style";
 type ScreenHeaderBtnProps = {
 	iconUrl: ImageData;
 	dimension: string;
+	handlePress?: () => void;
 };
 const ScreenHeaderBtn = ({ iconUrl, dimension }: ScreenHeaderBtnProps) => {
 	return (
