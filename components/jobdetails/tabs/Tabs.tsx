@@ -39,7 +39,6 @@ const Tabs = ({ tabs, activeTab, setActiveTab }: TabsProps) => {
 				keyExtractor={(item) => item}
 				contentContainerStyle={{ columnGap: SIZES.small / 2 }}
 			/>
-			<Text>Tabs</Text>
 		</View>
 	);
 };

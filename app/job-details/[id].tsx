@@ -8,7 +8,13 @@ import {
 } from "react-native";
 import useFetch from "../../hook/useFetch";
 import { COLORS, SIZES, icons } from "../../constants";
-import { Company, JobTabs, ScreenHeaderBtn, Specifics } from "../../components";
+import {
+	Company,
+	JobAbout,
+	JobTabs,
+	ScreenHeaderBtn,
+	Specifics,
+} from "../../components";
 import { RefreshControl } from "react-native-gesture-handler";
 import { useState } from "react";
 
@@ -23,21 +29,33 @@ const JobDetails = () => {
 	const [refreshing, setRefreshing] = useState(false);
 	const [activeTab, setActiveTab] = useState(tabs[0]);
 	const onRefresh = () => {};
-	console.log(data);
 
-	const displayTabContent = () => {
+	const displayToContent = () => {
 		switch (activeTab) {
 			case "About":
-				return <Text>About</Text>;
+				return (
+					<JobAbout
+						info={data[0].job_description ?? "No data provided"}
+					/>
+				);
 			case "Qualification":
 				return (
 					<Specifics
 						title="Qualification"
-						data={data[0].job_highlights?.Qualifications ?? ["N/A"]}
+						points={
+							data[0].job_highlights?.Qualifications ?? ["N/A"]
+						}
 					/>
 				);
 			case "Responsibilities":
-				return <Text>Responsibilities</Text>;
+				return (
+					<Specifics
+						title="Responsibilities"
+						points={
+							data[0].job_highlights?.Responsibilities ?? ["N/A"]
+						}
+					/>
+				);
 			default:
 				break;
 		}
@@ -84,10 +102,10 @@ const JobDetails = () => {
 				) : (
 					<View style={{ padding: SIZES.medium, paddingBottom: 100 }}>
 						<Company
-							companyLogo={data[0].employer_logo}
-							jobTitle={data[0].job_title}
-							companyName={data[0].employer_name}
-							location={data[0].job_country}
+							companyLogo={data[0]?.employer_logo}
+							jobTitle={data[0]?.job_title}
+							companyName={data[0]?.employer_name}
+							location={data[0]?.job_country}
 						/>
 
 						<JobTabs
@@ -95,7 +113,7 @@ const JobDetails = () => {
 							activeTab={activeTab}
 							setActiveTab={setActiveTab}
 						/>
-						{/* {displayToContent()} */}
+						{displayToContent()}
 					</View>
 				)}
 			</ScrollView>
