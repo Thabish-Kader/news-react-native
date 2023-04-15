@@ -1,5 +1,11 @@
-import { Text } from "react-native";
+import { SafeAreaView, Text } from "react-native";
 
-export const index = () => {
-	return <Text>index</Text>;
+const index = () => {
+	return (
+		<SafeAreaView>
+			<Text className="text-red-500">Hello</Text>
+		</SafeAreaView>
+	);
 };
+
+export default index;
