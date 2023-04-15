@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Image } from "react-native";
 import styles from "./company.style";
 import { checkImageURL } from "../../../utils/checkImageUrl";
+import { icons } from "../../../constants";
 
 const Company = ({ companyLogo, companyName, location, jobTitle }) => {
 	return (
@@ -20,7 +21,15 @@ const Company = ({ companyLogo, companyName, location, jobTitle }) => {
 				<Text style={styles.jobTitle}>{jobTitle}</Text>
 			</View>
 			<View style={styles.companyInfoBox}>
-				<Text>{companyName}</Text>
+				<Text style={styles.companyName}>{companyName}</Text>
+				<View style={styles.locationBox}>
+					<Image
+						source={icons.location}
+						style={styles.locationImage}
+						resizeMode="contain"
+					/>
+					<Text style={styles.locationName}>{location}</Text>
+				</View>
 			</View>
 		</View>
 	);
