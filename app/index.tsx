@@ -3,7 +3,8 @@ import { Stack } from "expo-router";
 import { HeaderBtn } from "../components/HeaderBtn";
 import search from "./assets/search.png";
 import menu from "./assets/menu.png";
-import { COLORS } from "../COLORS";
+import { COLORS } from "../theme";
+import { HeadLines } from "../components/HeadLines";
 
 const Home = () => {
 	return (
@@ -19,9 +20,9 @@ const Home = () => {
 					headerTitle: "Newz",
 				}}
 			/>
-			<ScrollView
-				style={{ backgroundColor: COLORS.zinc[800] }}
-			></ScrollView>
+			<ScrollView style={{}}>
+				<HeadLines />
+			</ScrollView>
 		</SafeAreaView>
 	);
 };
