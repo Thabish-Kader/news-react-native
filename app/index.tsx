@@ -1,10 +1,11 @@
-import { Image, SafeAreaView, ScrollView, Text } from "react-native";
+import { FlatList, Image, SafeAreaView, ScrollView, Text } from "react-native";
 import { Stack } from "expo-router";
 import { HeaderBtn } from "../components/HeaderBtn";
 import search from "./assets/search.png";
 import menu from "./assets/menu.png";
 import { COLORS } from "../theme";
 import { HeadLines } from "../components/HeadLines";
+import { Categories } from "../components/Categories";
 
 const Home = () => {
 	return (
@@ -22,6 +23,7 @@ const Home = () => {
 			/>
 			<ScrollView style={{}}>
 				<HeadLines />
+				<Categories />
 			</ScrollView>
 		</SafeAreaView>
 	);
