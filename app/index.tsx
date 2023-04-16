@@ -6,6 +6,7 @@ import menu from "./assets/menu.png";
 import { COLORS } from "../theme";
 import { HeadLines } from "../components/HeadLines";
 import { Categories } from "../components/Categories";
+import { AllNews } from "../components/AllNews";
 
 const Home = () => {
 	return (
@@ -24,6 +25,7 @@ const Home = () => {
 			<ScrollView style={{}}>
 				<HeadLines />
 				<Categories />
+				<AllNews />
 			</ScrollView>
 		</SafeAreaView>
 	);
