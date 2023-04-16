@@ -1,4 +1,4 @@
-import { Image, SafeAreaView, Text } from "react-native";
+import { Image, SafeAreaView, ScrollView, Text } from "react-native";
 import { Stack } from "expo-router";
 import { HeaderBtn } from "../components/HeaderBtn";
 import search from "./assets/search.png";
@@ -14,11 +14,14 @@ const Home = () => {
 						backgroundColor: COLORS.red[500],
 					},
 					headerShadowVisible: true,
-					headerLeft: () => <HeaderBtn icon={search} />,
-					headerRight: () => <HeaderBtn icon={menu} />,
+					headerLeft: () => <HeaderBtn icon={menu} />,
+					headerRight: () => <HeaderBtn icon={search} />,
 					headerTitle: "Newz",
 				}}
 			/>
+			<ScrollView
+				style={{ backgroundColor: COLORS.zinc[800] }}
+			></ScrollView>
 		</SafeAreaView>
 	);
 };
