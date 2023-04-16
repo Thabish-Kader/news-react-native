@@ -14,13 +14,20 @@ export const AllNews = () => {
 					<TouchableOpacity style={styles.listContainer}>
 						<Image
 							style={styles.img}
-							source={{ uri: item.urlToImage }}
+							source={{
+								uri:
+									item.urlToImage === null
+										? "https://cdn11.bigcommerce.com/s-1812kprzl2/images/stencil/original/products/426/5082/no-image__12882.1665668288.jpg?c=2"
+										: item.urlToImage,
+							}}
 							resizeMode="cover"
 						/>
 						<View style={styles.articleInfoContainer}>
-							<Text style={styles.title}>{item.title}</Text>
+							<Text style={styles.title} numberOfLines={3}>
+								{item.title}
+							</Text>
 							<View style={styles.articleAuthorContainer}>
-								<Text style={styles.author}>
+								<Text style={styles.author} numberOfLines={1}>
 									Author : {item.author}
 								</Text>
 								<Text style={styles.date}>

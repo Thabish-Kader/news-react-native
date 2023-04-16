@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
 		shadowRadius: 3,
 		backgroundColor: COLORS.grey[100],
 		width: "100%",
-		marginBottom: 10,
+		marginBottom: 5,
 		borderRadius: 5,
 	},
 	img: {

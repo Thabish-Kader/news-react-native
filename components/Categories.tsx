@@ -4,10 +4,10 @@ import { COLORS } from "../theme";
 
 const categories = [
 	"business",
-	"entertainment",
 	"general",
 	"health",
 	"science",
+	"entertainment",
 	"sports",
 	"technology",
 ];
@@ -40,7 +40,7 @@ export const Categories = () => {
 const styles = StyleSheet.create({
 	list: {},
 	button: {
-		paddingHorizontal: 2,
+		paddingHorizontal: 7.5,
 		paddingBottom: 2,
 		borderWidth: 1,
 		borderRadius: 5,
