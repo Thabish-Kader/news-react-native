@@ -4,6 +4,8 @@ import { mockData } from "../testData";
 import { COLORS, FONT_SIZE } from "../theme";
 
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { HeadLines } from "./HeadLines";
+import { Categories } from "./Categories";
 
 export const AllNews = () => {
 	return (
