@@ -24,13 +24,14 @@ export const HeadLines = () => {
 const styles = StyleSheet.create({
 	container: {
 		flexDirection: "column",
-		shadowOffset: { width: -2, height: 4 },
-		shadowColor: COLORS.zinc[900],
-		shadowOpacity: 0.1,
+		shadowOffset: { width: 1, height: 3 },
+		shadowColor: "black",
+		shadowOpacity: 0.2,
 		shadowRadius: 3,
-		backgroundColor: "white",
+		backgroundColor: COLORS.grey[100],
 		width: "100%",
 		marginBottom: 10,
+		borderRadius: 5,
 	},
 	img: {
 		height: 200,

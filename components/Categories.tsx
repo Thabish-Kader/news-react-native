@@ -24,10 +24,14 @@ export const Categories = () => {
 						// TODO: create function to push to the differnt page
 						onPress={() => console.log(item)}
 					>
-						<Text style={styles.text}>{item}</Text>
+						<View style={styles.container}>
+							<Text style={styles.text}>{item}</Text>
+						</View>
 					</TouchableOpacity>
 				)}
 				horizontal
+				showsHorizontalScrollIndicator={false}
+				contentContainerStyle={{ columnGap: 6 }}
 			/>
 		</View>
 	);
@@ -36,16 +40,16 @@ export const Categories = () => {
 const styles = StyleSheet.create({
 	list: {},
 	button: {
-		paddingHorizontal: 6,
-		padding: 2,
+		paddingHorizontal: 2,
+		paddingBottom: 2,
+		borderWidth: 1,
+		borderRadius: 5,
+		backgroundColor: COLORS.grey[100],
 	},
+	container: {},
 	text: {
 		fontWeight: "bold",
 		textTransform: "capitalize",
-		backgroundColor: COLORS.grey[50],
-		padding: 10,
-		borderColor: COLORS.zinc[900],
-		borderWidth: 1,
-		borderRadius: 10,
+		padding: 10.5,
 	},
 });

@@ -2,7 +2,7 @@ import React from "react";
 import { FlatList, Image, StyleSheet, Text, View } from "react-native";
 import { mockData } from "../testData";
 import { COLORS, FONT_SIZE } from "../theme";
-import { Colors } from "react-native/Libraries/NewAppScreen";
+
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 export const AllNews = () => {
@@ -24,7 +24,7 @@ export const AllNews = () => {
 									Author : {item.author}
 								</Text>
 								<Text style={styles.date}>
-									{item.publishedAt}
+									{new Date(item.publishedAt).toDateString()}
 								</Text>
 							</View>
 						</View>
@@ -38,7 +38,8 @@ export const AllNews = () => {
 const styles = StyleSheet.create({
 	listContainer: {
 		flexDirection: "row",
-		padding: 10,
+		padding: 4,
+		gap: 6,
 	},
 	img: {
 		height: 100,
@@ -46,8 +47,11 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 	},
 	articleInfoContainer: {
+		backgroundColor: COLORS.grey[100],
+		flex: 1,
 		flexDirection: "column",
-		paddingHorizontal: 4,
+		padding: 4,
+		borderRadius: 10,
 	},
 	title: {
 		fontWeight: "bold",

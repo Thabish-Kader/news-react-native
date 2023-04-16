@@ -10,7 +10,7 @@ import { AllNews } from "../components/AllNews";
 
 const Home = () => {
 	return (
-		<SafeAreaView>
+		<SafeAreaView style={{ backgroundColor: COLORS.zinc[800] }}>
 			<Stack.Screen
 				options={{
 					headerStyle: {
