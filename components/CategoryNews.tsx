@@ -14,7 +14,7 @@ export const CategoryNews = ({ news }: { news: Source[] }) => {
 	const router = useRouter();
 	return (
 		<View>
-			{news.map((item) => (
+			{news?.map((item) => (
 				<TouchableOpacity
 					key={item.id}
 					style={styles.listContainer}

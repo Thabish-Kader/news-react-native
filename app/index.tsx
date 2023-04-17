@@ -19,22 +19,16 @@ import { useQuery } from "@tanstack/react-query";
 
 const Home = () => {
 	const [refreshing, setRefreshing] = useState(false);
-	const [news, setNews] = useState<Article[]>();
 	const { data, isLoading, error } = useQuery({
 		queryKey: ["topHeadlines"],
 		queryFn: fetchTopHeadlines,
 	});
 
-	const onRefresh = useCallback(async () => {
-		setRefreshing(true);
-		const newNews = await fetchTopHeadlines();
-		setNews(newNews);
-		setRefreshing(false);
-	}, []);
-
-	useEffect(() => {
-		setNews(data);
-	}, []);
+	// const onRefresh = useCallback(async () => {
+	// 	setRefreshing(true);
+	// 	const newNews = await fetchTopHeadlines();
+	// 	setRefreshing(false);
+	// }, []);
 
 	if (isLoading) return <ActivityIndicator />;
 	if (error) return <Text>Something went wrong </Text>;
@@ -71,13 +65,13 @@ const Home = () => {
 				refreshControl={
 					<RefreshControl
 						refreshing={refreshing}
-						onRefresh={onRefresh}
+						// onRefresh={onRefresh}
 					/>
 				}
 			>
-				<HeadLines topHeadline={news[0]} />
+				<HeadLines topHeadline={data[0]} />
 				<Categories />
-				<AllNews news={news} />
+				<AllNews news={data} />
 			</ScrollView>
 		</SafeAreaView>
 	);
