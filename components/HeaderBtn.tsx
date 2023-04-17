@@ -1,7 +1,5 @@
 import { Image, Text, TouchableOpacity, StyleSheet } from "react-native";
 
-import { Feather } from "@expo/vector-icons";
-
 type HeaderBtnProps = {
 	icon: ImageData;
 };
@@ -9,8 +7,6 @@ type HeaderBtnProps = {
 export const HeaderBtn = ({ icon }: HeaderBtnProps) => {
 	return (
 		<TouchableOpacity style={styles.container}>
-			<Feather name="menu" size={24} color="white" />
-
 			<Image source={icon} style={styles.img} resizeMode="cover" />
 		</TouchableOpacity>
 	);
