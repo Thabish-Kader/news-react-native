@@ -12,39 +12,37 @@ export const AllNews = ({ news }: { news: Article[] }) => {
 	const router = useRouter();
 	return (
 		<View>
-			<FlatList
-				data={news}
-				renderItem={({ item }) => (
-					<TouchableOpacity
-						style={styles.listContainer}
-						onPress={() => router.push(item.url)}
-					>
-						<Image
-							style={styles.img}
-							source={{
-								uri:
-									item.urlToImage === null
-										? "https://cdn11.bigcommerce.com/s-1812kprzl2/images/stencil/original/products/426/5082/no-image__12882.1665668288.jpg?c=2"
-										: item.urlToImage,
-							}}
-							resizeMode="cover"
-						/>
-						<View style={styles.articleInfoContainer}>
-							<Text style={styles.title} numberOfLines={3}>
-								{item.title}
+			{news.map((item, i) => (
+				<TouchableOpacity
+					key={i}
+					style={styles.listContainer}
+					onPress={() => router.push(item.url)}
+				>
+					<Image
+						style={styles.img}
+						source={{
+							uri:
+								item.urlToImage === null
+									? "https://cdn11.bigcommerce.com/s-1812kprzl2/images/stencil/original/products/426/5082/no-image__12882.1665668288.jpg?c=2"
+									: item.urlToImage,
+						}}
+						resizeMode="cover"
+					/>
+					<View style={styles.articleInfoContainer}>
+						<Text style={styles.title} numberOfLines={3}>
+							{item.title}
+						</Text>
+						<View style={styles.articleAuthorContainer}>
+							<Text style={styles.author} numberOfLines={1}>
+								Author : {item.author}
 							</Text>
-							<View style={styles.articleAuthorContainer}>
-								<Text style={styles.author} numberOfLines={1}>
-									Author : {item.author}
-								</Text>
-								<Text style={styles.date}>
-									{new Date(item.publishedAt).toDateString()}
-								</Text>
-							</View>
+							<Text style={styles.date}>
+								{new Date(item.publishedAt).toDateString()}
+							</Text>
 						</View>
-					</TouchableOpacity>
-				)}
-			/>
+					</View>
+				</TouchableOpacity>
+			))}
 		</View>
 	);
 };

@@ -14,27 +14,25 @@ export const CategoryNews = ({ news }: { news: Source[] }) => {
 	const router = useRouter();
 	return (
 		<View>
-			<FlatList
-				data={news}
-				renderItem={({ item }) => (
-					<TouchableOpacity
-						style={styles.listContainer}
-						onPress={() => router.push(item.url)}
-					>
-						<View style={styles.articleInfoContainer}>
-							<Text style={styles.names}>{item.name}</Text>
-							<View style={styles.articleInfo}>
-								<Text style={styles.description}>
-									Author : {item.description}
-								</Text>
-								<Text style={styles.country}>
-									Country : {item.country}
-								</Text>
-							</View>
+			{news.map((item) => (
+				<TouchableOpacity
+					key={item.id}
+					style={styles.listContainer}
+					onPress={() => router.push(item.url)}
+				>
+					<View style={styles.articleInfoContainer}>
+						<Text style={styles.names}>{item.name}</Text>
+						<View style={styles.articleInfo}>
+							<Text style={styles.description}>
+								Author : {item.description}
+							</Text>
+							<Text style={styles.country}>
+								Country : {item.country}
+							</Text>
 						</View>
-					</TouchableOpacity>
-				)}
-			/>
+					</View>
+				</TouchableOpacity>
+			))}
 		</View>
 	);
 };
