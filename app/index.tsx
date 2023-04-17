@@ -3,6 +3,7 @@ import {
 	RefreshControl,
 	SafeAreaView,
 	ScrollView,
+	Text,
 } from "react-native";
 import { Stack } from "expo-router";
 import { COLORS } from "../theme";
@@ -11,10 +12,9 @@ import { Categories } from "../components/Categories";
 import { AllNews } from "../components/AllNews";
 import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useCallback, useEffect, useState } from "react";
-import { mockData } from "../testData";
-import { NEWS_API_KEY } from "@env";
-import { fetchTopHeadlines } from "../api";
-import { Article, News } from "../typeings";
+import { mockArticles } from "../testData";
+import { fetchTopHeadlines } from "../api/fetchTopHeadlines";
+import { Article } from "../typeings";
 import { useQuery } from "@tanstack/react-query";
 
 const Home = () => {
@@ -37,6 +37,7 @@ const Home = () => {
 	}, []);
 
 	if (isLoading) return <ActivityIndicator />;
+	if (error) return <Text>Something went wrong </Text>;
 
 	return (
 		<SafeAreaView style={{ backgroundColor: COLORS.zinc[800] }}>

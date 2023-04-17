@@ -1,5 +1,5 @@
 import { NEWS_API_KEY } from "@env";
-import { Article, News } from "./typeings";
+import { Article } from "../typeings";
 
 export const fetchTopHeadlines = async () => {
 	const response = await fetch(
@@ -10,6 +10,5 @@ export const fetchTopHeadlines = async () => {
 	);
 	const data = await response.json();
 	const articles = data.articles;
-	console.log(articles);
 	return articles as Article[];
 };

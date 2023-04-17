@@ -1,14 +1,19 @@
 import { Image, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { COLORS, FONT_SIZE } from "../theme";
 import { Article } from "../typeings";
+import { useRouter } from "expo-router";
 
 type HeadLinesProps = {
 	topHeadline: Article;
 };
 
 export const HeadLines = ({ topHeadline }: HeadLinesProps) => {
+	const router = useRouter();
 	return (
-		<TouchableOpacity style={styles.container}>
+		<TouchableOpacity
+			style={styles.container}
+			onPress={() => router.push(topHeadline.url)}
+		>
 			<Image
 				style={styles.img}
 				source={{

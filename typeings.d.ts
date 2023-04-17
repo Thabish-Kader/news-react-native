@@ -1,11 +1,5 @@
-export interface News {
-	status: string;
-	totalResults: number;
-	articles: Article[];
-}
-
 export interface Article {
-	source: Source;
+	source: { id: null | string; name: string };
 	author: null | string;
 	title: string;
 	description: null | string;
@@ -16,6 +10,11 @@ export interface Article {
 }
 
 export interface Source {
-	id: null | string;
+	id: string;
 	name: string;
+	description: string;
+	url: string;
+	category: string;
+	language: string;
+	country: string;
 }

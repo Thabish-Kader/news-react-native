@@ -1,11 +1,10 @@
 import React from "react";
 import { FlatList, Image, StyleSheet, Text, View } from "react-native";
-import { mockData } from "../testData";
+
 import { COLORS, FONT_SIZE } from "../theme";
 
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { HeadLines } from "./HeadLines";
-import { Categories } from "./Categories";
+
 import { useRouter } from "expo-router";
 import { Article } from "../typeings";
 
