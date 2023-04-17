@@ -1,6 +1,7 @@
 import {
 	FlatList,
 	Image,
+	RefreshControl,
 	SafeAreaView,
 	ScrollView,
 	Text,
@@ -13,8 +14,30 @@ import { HeadLines } from "../components/HeadLines";
 import { Categories } from "../components/Categories";
 import { AllNews } from "../components/AllNews";
 import { Feather } from "@expo/vector-icons";
+import { useCallback, useState } from "react";
+import { mockData } from "../testData";
 
 const Home = () => {
+	const [refreshing, setRefreshing] = useState(false);
+	const [data, setData] = useState(mockData.articles);
+
+	// const onRefresh = useCallback(async () => {
+
+	const onRefresh = useCallback(async () => {
+		setRefreshing(true);
+		if (data.length < 10) {
+			try {
+				let response = await fetch("");
+				let responseJson = await response.json();
+				console.log(responseJson);
+				setData(responseJson.result.concat(data));
+				setRefreshing(false);
+			} catch (error) {
+				console.error(error);
+			}
+		}
+	}, []);
+
 	return (
 		<SafeAreaView style={{ backgroundColor: COLORS.zinc[800] }}>
 			<Stack.Screen
@@ -43,7 +66,14 @@ const Home = () => {
 					headerTintColor: "white",
 				}}
 			/>
-			<ScrollView>
+			<ScrollView
+				refreshControl={
+					<RefreshControl
+						refreshing={refreshing}
+						onRefresh={onRefresh}
+					/>
+				}
+			>
 				<HeadLines />
 				<Categories />
 

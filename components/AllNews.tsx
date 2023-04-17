@@ -6,14 +6,19 @@ import { COLORS, FONT_SIZE } from "../theme";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { HeadLines } from "./HeadLines";
 import { Categories } from "./Categories";
+import { useRouter } from "expo-router";
 
 export const AllNews = () => {
+	const router = useRouter();
 	return (
 		<View>
 			<FlatList
 				data={mockData.articles}
 				renderItem={({ item }) => (
-					<TouchableOpacity style={styles.listContainer}>
+					<TouchableOpacity
+						style={styles.listContainer}
+						onPress={() => router.push(item.url)}
+					>
 						<Image
 							style={styles.img}
 							source={{
