@@ -1,42 +1,42 @@
 import {
-	FlatList,
-	Image,
+	ActivityIndicator,
 	RefreshControl,
 	SafeAreaView,
 	ScrollView,
-	Text,
-	View,
 } from "react-native";
 import { Stack } from "expo-router";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { COLORS } from "../theme";
 import { HeadLines } from "../components/HeadLines";
 import { Categories } from "../components/Categories";
 import { AllNews } from "../components/AllNews";
-import { Feather } from "@expo/vector-icons";
-import { useCallback, useState } from "react";
+import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
+import { useCallback, useEffect, useState } from "react";
 import { mockData } from "../testData";
+import { NEWS_API_KEY } from "@env";
+import { fetchTopHeadlines } from "../api";
+import { Article, News } from "../typeings";
+import { useQuery } from "@tanstack/react-query";
 
 const Home = () => {
 	const [refreshing, setRefreshing] = useState(false);
-	const [data, setData] = useState(mockData.articles);
-
-	// const onRefresh = useCallback(async () => {
+	const [news, setNews] = useState<Article[]>();
+	const { data, isLoading, error } = useQuery({
+		queryKey: ["topHeadlines"],
+		queryFn: fetchTopHeadlines,
+	});
 
 	const onRefresh = useCallback(async () => {
 		setRefreshing(true);
-		if (data.length < 10) {
-			try {
-				let response = await fetch("");
-				let responseJson = await response.json();
-				console.log(responseJson);
-				setData(responseJson.result.concat(data));
-				setRefreshing(false);
-			} catch (error) {
-				console.error(error);
-			}
-		}
+		const newNews = await fetchTopHeadlines();
+		setNews(newNews);
+		setRefreshing(false);
 	}, []);
+
+	useEffect(() => {
+		setNews(data);
+	}, []);
+
+	if (isLoading) return <ActivityIndicator />;
 
 	return (
 		<SafeAreaView style={{ backgroundColor: COLORS.zinc[800] }}>
@@ -74,10 +74,9 @@ const Home = () => {
 					/>
 				}
 			>
-				<HeadLines />
+				<HeadLines topHeadline={news[0]} />
 				<Categories />
-
-				<AllNews />
+				<AllNews news={news} />
 			</ScrollView>
 		</SafeAreaView>
 	);

@@ -1,6 +1,7 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { COLORS } from "../theme";
+import { useRouter } from "expo-router";
 
 const categories = [
 	"business",
@@ -12,6 +13,8 @@ const categories = [
 	"technology",
 ];
 export const Categories = () => {
+	const router = useRouter();
+
 	return (
 		<View>
 			<FlatList
@@ -21,8 +24,7 @@ export const Categories = () => {
 				renderItem={({ item }) => (
 					<TouchableOpacity
 						style={styles.button}
-						// TODO: create function to push to the differnt page
-						onPress={() => console.log(item)}
+						onPress={() => router.push(`/news/${item}`)}
 					>
 						<View style={styles.container}>
 							<Text style={styles.text}>{item}</Text>

@@ -7,13 +7,14 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { HeadLines } from "./HeadLines";
 import { Categories } from "./Categories";
 import { useRouter } from "expo-router";
+import { Article } from "../typeings";
 
-export const AllNews = () => {
+export const AllNews = ({ news }: { news: Article[] }) => {
 	const router = useRouter();
 	return (
 		<View>
 			<FlatList
-				data={mockData.articles}
+				data={news}
 				renderItem={({ item }) => (
 					<TouchableOpacity
 						style={styles.listContainer}
