@@ -19,16 +19,15 @@ import { useQuery } from "@tanstack/react-query";
 
 const Home = () => {
 	const [refreshing, setRefreshing] = useState(false);
-	const { data, isLoading, error } = useQuery({
+	const { data, isLoading, error, refetch } = useQuery({
 		queryKey: ["topHeadlines"],
 		queryFn: fetchTopHeadlines,
 	});
 
-	// const onRefresh = useCallback(async () => {
-	// 	setRefreshing(true);
-	// 	const newNews = await fetchTopHeadlines();
-	// 	setRefreshing(false);
-	// }, []);
+	const onRefresh = useCallback(async () => {
+		setRefreshing(true);
+		refetch().then(() => setRefreshing(false));
+	}, []);
 
 	if (isLoading) return <ActivityIndicator />;
 	if (error) return <Text>Something went wrong </Text>;
@@ -65,7 +64,7 @@ const Home = () => {
 				refreshControl={
 					<RefreshControl
 						refreshing={refreshing}
-						// onRefresh={onRefresh}
+						onRefresh={onRefresh}
 					/>
 				}
 			>

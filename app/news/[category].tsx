@@ -5,6 +5,8 @@ import {
 	SafeAreaView,
 	ScrollView,
 	Text,
+	StyleSheet,
+	View,
 } from "react-native";
 import { Stack } from "expo-router";
 import { COLORS } from "../../theme";
@@ -20,24 +22,14 @@ const Category = () => {
 	const router = useRouter();
 	const { category } = useSearchParams();
 	const [refreshing, setRefreshing] = useState(false);
-	const { data, isLoading, error } = useQuery({
+	const { data, isLoading, error, refetch } = useQuery({
 		queryKey: ["topCategory", category],
 		queryFn: () => fetchNewsByCategory(category as string),
 	});
 
 	const onRefresh = useCallback(async () => {
 		setRefreshing(true);
-		// if (data.length < 10) {
-		// 	try {
-		// 		let response = await fetch("");
-		// 		let responseJson = await response.json();
-		// 		console.log(responseJson);
-		// 		setData(responseJson.result.concat(data));
-		// 		setRefreshing(false);
-		// 	} catch (error) {
-		// 		console.error(error);
-		// 	}
-		// }
+		refetch().then(() => setRefreshing(false));
 	}, []);
 
 	if (isLoading) return <ActivityIndicator />;
@@ -71,18 +63,29 @@ const Category = () => {
 					headerTintColor: "white",
 				}}
 			/>
-			<ScrollView
-				refreshControl={
-					<RefreshControl
-						refreshing={refreshing}
-						onRefresh={onRefresh}
-					/>
-				}
-			>
-				<CategoryNews news={data} />
-			</ScrollView>
+			<View style={styles.container}>
+				<ScrollView
+					contentContainerStyle={styles.scrollView}
+					refreshControl={
+						<RefreshControl
+							refreshing={refreshing}
+							onRefresh={onRefresh}
+						/>
+					}
+				>
+					<CategoryNews news={data} />
+				</ScrollView>
+			</View>
 		</SafeAreaView>
 	);
 };
-
+const styles = StyleSheet.create({
+	container: {
+		height: "100%",
+		backgroundColor: COLORS.zinc[900],
+	},
+	scrollView: {
+		flexGrow: 1,
+	},
+});
 export default Category;

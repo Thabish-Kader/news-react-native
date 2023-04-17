@@ -11,6 +11,5 @@ export const fetchNewsByCategory = async (category: string) => {
 	);
 	const data = await response.json();
 	const sources: Source[] = data.sources;
-	console.log(sources);
 	return sources as Source[];
 };
