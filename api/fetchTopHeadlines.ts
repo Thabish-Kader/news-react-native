@@ -9,6 +9,6 @@ export const fetchTopHeadlines = async () => {
 		}
 	);
 	const data = await response.json();
-	const articles = data.articles;
+	const articles: Article[] = data.articles;
 	return articles as Article[];
 };

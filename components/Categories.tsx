@@ -14,7 +14,6 @@ const categories = [
 ];
 export const Categories = () => {
 	const router = useRouter();
-
 	return (
 		<View>
 			<FlatList

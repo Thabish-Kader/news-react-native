@@ -19,6 +19,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const Home = () => {
 	const [refreshing, setRefreshing] = useState(false);
+
 	const { data, isLoading, error, refetch } = useQuery({
 		queryKey: ["topHeadlines"],
 		queryFn: fetchTopHeadlines,
@@ -42,7 +43,7 @@ const Home = () => {
 					headerShadowVisible: true,
 					headerLeft: () => (
 						<Feather
-							onPress={() => console.log("Menu")}
+							onPress={() => console.log("menu")}
 							name="menu"
 							size={24}
 							color="white"
