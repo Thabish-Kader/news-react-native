@@ -3,16 +3,16 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { COLORS } from "../theme";
 import { useRouter } from "expo-router";
 
-const categories = [
-	"business",
-	"general",
-	"health",
-	"science",
-	"entertainment",
-	"sports",
-	"technology",
-];
 export const Categories = () => {
+	const categories = [
+		"business",
+		"general",
+		"health",
+		"science",
+		"entertainment",
+		"sports",
+		"technology",
+	];
 	const router = useRouter();
 	return (
 		<View>

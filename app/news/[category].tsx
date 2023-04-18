@@ -20,6 +20,7 @@ import { CategoryNews } from "../../components/CategoryNews";
 
 const Category = () => {
 	const router = useRouter();
+
 	const { category } = useSearchParams();
 	const [refreshing, setRefreshing] = useState(false);
 	const { data, isLoading, error, refetch } = useQuery({

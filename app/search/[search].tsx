@@ -5,27 +5,26 @@ import {
 	ScrollView,
 	Text,
 } from "react-native";
-import { Stack, useNavigation } from "expo-router";
+import { Stack, useNavigation, useSearchParams } from "expo-router";
 import { DrawerActions } from "@react-navigation/native";
-import { COLORS } from "../theme";
-import { HeadLines } from "../components/HeadLines";
-import { Categories } from "../components/Categories";
-import { AllNews } from "../components/AllNews";
+import { COLORS } from "../../theme";
+import { HeadLines } from "../../components/HeadLines";
+import { Categories } from "../../components/Categories";
+import { AllNews } from "../../components/AllNews";
 import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
 import { useCallback, useState } from "react";
-import { mockArticles } from "../testData";
-import { fetchTopHeadlines } from "../api/fetchTopHeadlines";
 
 import { useQuery } from "@tanstack/react-query";
-import { Search } from "../components/Search";
+import { Search } from "../../components/Search";
+import { fetchNewsBySearch } from "../../api/fetchNewsBySearch";
 
-const Home = () => {
+const SearchResult = () => {
 	const [refreshing, setRefreshing] = useState(false);
 	const nav = useNavigation();
-
+	const { search } = useSearchParams();
 	const { data, isLoading, error, refetch } = useQuery({
-		queryKey: ["topHeadlines"],
-		queryFn: fetchTopHeadlines,
+		queryKey: ["searchResults"],
+		queryFn: () => fetchNewsBySearch(search as string),
 	});
 
 	const onRefresh = useCallback(async () => {
@@ -69,11 +68,10 @@ const Home = () => {
 				}
 			>
 				<HeadLines topHeadline={data[0]} />
-				<Categories />
 				<AllNews news={data} />
 			</ScrollView>
 		</SafeAreaView>
 	);
 };
 
-export default Home;
+export default SearchResult;

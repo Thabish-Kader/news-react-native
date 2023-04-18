@@ -20,7 +20,7 @@ const Layout = () => {
 			{/* <Stack /> */}
 			<Drawer>
 				<Drawer.Screen
-					name="index" // This is the name of the page and must match the url from root
+					name="index"
 					options={{
 						drawerLabel: "Home",
 						title: "overview",
@@ -29,7 +29,7 @@ const Layout = () => {
 					}}
 				/>
 				<Drawer.Screen
-					name="news/[category]" // This is the name of the page and must match the url from root
+					name="news/[category]"
 					options={{
 						drawerLabel: "Business",
 						title: "Business",
