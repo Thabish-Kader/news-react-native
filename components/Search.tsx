@@ -8,10 +8,11 @@ export const Search = () => {
 	const [toggle, setToggle] = useState(false);
 	const router = useRouter();
 	const searchPrompt = () => {
-		if (toggle) {
+		if (toggle && search.length > 0) {
 			router.push(`/search/${search}`);
 		}
 		setToggle(!toggle);
+		setSearch("");
 	};
 	return (
 		<View style={styles.container}>
