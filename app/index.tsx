@@ -5,7 +5,8 @@ import {
 	ScrollView,
 	Text,
 } from "react-native";
-import { Stack } from "expo-router";
+import { Stack, useNavigation } from "expo-router";
+import { DrawerActions } from "@react-navigation/native";
 import { COLORS } from "../theme";
 import { HeadLines } from "../components/HeadLines";
 import { Categories } from "../components/Categories";
@@ -19,6 +20,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const Home = () => {
 	const [refreshing, setRefreshing] = useState(false);
+	const nav = useNavigation();
 
 	const { data, isLoading, error, refetch } = useQuery({
 		queryKey: ["topHeadlines"],
@@ -43,7 +45,9 @@ const Home = () => {
 					headerShadowVisible: true,
 					headerLeft: () => (
 						<Feather
-							onPress={() => console.log("menu")}
+							onPress={() =>
+								nav.dispatch(DrawerActions.openDrawer())
+							}
 							name="menu"
 							size={24}
 							color="white"
