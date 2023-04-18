@@ -1,14 +1,17 @@
 # News - React Native App
+
 <img align="left" alt="TypeScript" width="30px" style="padding-right:10px;" src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" />
 
 <img align="left" alt="TypeScript" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-plain.svg" />
 <br/>
 <br/>
 
-
 Project created to learn react native
 
+[Link to project](https://expo.dev/@tabish_k/react-native-jobs?serviceType=classic&distribution=expo-go)
+
 ### ScreenShots
+
 <div align="center">
 
 <img width="300" alt="Screenshot 2023-04-18 at 1 05 36 PM" src="https://user-images.githubusercontent.com/76642519/232730244-a206df8b-da0c-479d-9d46-f55a55065ef2.png">
@@ -22,4 +25,4 @@ Project created to learn react native
 
 ### Resources
 
-- [Icons](https://icons.expo.fyi/)
+-   [Icons](https://icons.expo.fyi/)
