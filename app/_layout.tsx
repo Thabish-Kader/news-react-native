@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Stack } from "expo-router";
 import { Drawer } from "../components/Drawer";
+import { COLORS } from "../theme";
 
 const categories = [
 	{ name: "business", label: "Business" },
@@ -23,6 +24,8 @@ const Layout = () => {
 					options={{
 						drawerLabel: "Home",
 						title: "overview",
+						drawerStyle: { backgroundColor: COLORS.zinc[800] },
+						drawerInactiveTintColor: "white",
 					}}
 				/>
 				<Drawer.Screen

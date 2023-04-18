@@ -12,10 +12,10 @@ import { HeadLines } from "../components/HeadLines";
 import { Categories } from "../components/Categories";
 import { AllNews } from "../components/AllNews";
 import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { mockArticles } from "../testData";
 import { fetchTopHeadlines } from "../api/fetchTopHeadlines";
-import { Article } from "../typeings";
+
 import { useQuery } from "@tanstack/react-query";
 
 const Home = () => {
