@@ -55,7 +55,7 @@ const SearchResult = () => {
 						/>
 					),
 					headerRight: () => <Search />,
-					headerTitle: "News",
+					headerTitle: `Search results for "${search}"`,
 					headerTintColor: "white",
 				}}
 			/>

@@ -31,10 +31,22 @@ const Layout = () => {
 				<Drawer.Screen
 					name="news/[category]"
 					options={{
-						drawerLabel: "Business",
-						title: "Business",
+						drawerLabel: "General News",
+						title: "General News",
+						drawerStyle: { backgroundColor: COLORS.zinc[800] },
+						drawerInactiveTintColor: "white",
 					}}
-					initialParams={{ category: "business" }}
+					initialParams={{ category: "general" }}
+				/>
+				<Drawer.Screen
+					name="search/[search]"
+					options={{
+						drawerLabel: "Search",
+						title: "Search",
+						drawerStyle: { backgroundColor: COLORS.zinc[800] },
+						drawerInactiveTintColor: "white",
+					}}
+					initialParams={{ search: "sports" }}
 				/>
 			</Drawer>
 		</QueryClientProvider>
