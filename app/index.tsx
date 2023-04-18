@@ -11,7 +11,7 @@ import { COLORS } from "../theme";
 import { HeadLines } from "../components/HeadLines";
 import { Categories } from "../components/Categories";
 import { AllNews } from "../components/AllNews";
-import { Feather, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 import { useCallback, useState } from "react";
 import { mockArticles } from "../testData";
 import { fetchTopHeadlines } from "../api/fetchTopHeadlines";
@@ -21,6 +21,7 @@ import { Search } from "../components/Search";
 
 const Home = () => {
 	const [refreshing, setRefreshing] = useState(false);
+
 	const nav = useNavigation();
 
 	const { data, isLoading, error, refetch } = useQuery({
