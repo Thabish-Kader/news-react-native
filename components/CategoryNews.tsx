@@ -1,12 +1,6 @@
 import React from "react";
 import { Source } from "../typeings";
-import {
-	View,
-	FlatList,
-	TouchableOpacity,
-	Text,
-	StyleSheet,
-} from "react-native";
+import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import { COLORS, FONT_SIZE } from "../theme";
 import { useRouter } from "expo-router";
 

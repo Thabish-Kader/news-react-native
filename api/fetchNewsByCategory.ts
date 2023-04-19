@@ -1,6 +1,5 @@
 import { NEWS_API_KEY } from "@env";
 import { Source } from "../typeings";
-import { NewLineKind } from "typescript";
 
 export const fetchNewsByCategory = async (category: string) => {
 	const response = await fetch(

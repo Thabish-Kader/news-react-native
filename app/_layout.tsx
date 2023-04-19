@@ -3,15 +3,6 @@ import { Stack } from "expo-router";
 import { Drawer } from "../components/Drawer";
 import { COLORS } from "../theme";
 
-const categories = [
-	{ name: "business", label: "Business" },
-	{ name: "general", label: "General" },
-	{ name: "health", label: "Health" },
-	{ name: "entertainment", label: "Entertainment" },
-	{ name: "technology", label: "Technology" },
-	// Add more categories here
-];
-
 const Layout = () => {
 	const queryClinet = new QueryClient();
 
