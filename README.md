@@ -10,7 +10,7 @@ Project created to learn react native.
 
 [Link to project](https://expo.dev/@tabish_k/react-native-jobs?serviceType=classic&distribution=expo-go)
 
-### ScreenShots
+### ScreenShot
 
 <div align="center">
 
