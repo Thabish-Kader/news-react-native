@@ -10,6 +10,9 @@ Project created to learn react native.
 
 [Link to project](https://expo.dev/@tabish_k/react-native-jobs?serviceType=classic&distribution=expo-go)
 
+### Youtube
+[![React Native Crash Course: Build a Complete App in 2 Hours](https://ytcards.demolab.com/?id=xpErFQ08Mjw&title=React+Native+Crash+Course%3A+Build+a+Complete+App+in+2+Hours&lang=en&timestamp=1682020814&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&width=250 "React Native Crash Course: Build a Complete App in 2 Hours")](https://www.youtube.com/watch?v=xpErFQ08Mjw)
+
 ### ScreenShots
 
 <div align="center">
